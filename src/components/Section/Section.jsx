@@ -1,6 +1,8 @@
-
-export const Section = ({ title }) => {
-    console.log(title);
-    
-    <h1>{title}</h1>
-}
+export const Section = ({ title, children }) => {
+  return (
+    <>
+      <h1>{title}</h1>
+      {children}
+    </>
+  );
+};

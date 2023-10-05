@@ -9,8 +9,6 @@ export class App extends Component {
     good: 0,
     neutral: 0,
     bad: 0,
-    total: 0,
-    positivePercentage: 0,
   };
   // this.setState((prevState) => {
   //   return {
@@ -24,11 +22,9 @@ export class App extends Component {
 
   //  }
   render() {
-    // const {  } = this.state;
+    const { good, neutral, bad } = this.state;
     return (
-  
       <>
-       <h1>hhhhhh</h1>
         <Section title="Please leave feedback">
           <FeedbackOptions
             options={this.state}
@@ -38,13 +34,13 @@ export class App extends Component {
 
         <Section title="Statistics">
           <Statistics
-            good={this.state.good}
-            neutral={this.state.neutral}
-            bad={this.state.bad}
-            total={this.state.total}
-            positivePercentage={this.state.positivePercentage}
+            good={good}
+            neutral={neutral}
+            bad={bad}
+            total={0}
+            positivePercentage={0}
           ></Statistics>
-          <Notification></Notification>
+          <Notification message="There is no feedback" />
         </Section>
       </>
     );

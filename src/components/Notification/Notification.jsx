@@ -1,6 +1,4 @@
-
-
-export const Notification = () => {
-    //    <Notification></Notification> 
-    return <p>aaaaaaaaaaaaaaaa</p>
-}
+export const Notification = ({ message }) => {
+  //    <Notification></Notification>
+  return <p>{message}</p>;
+};
