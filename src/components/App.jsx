@@ -10,14 +10,26 @@ export class App extends Component {
     neutral: 0,
     bad: 0,
   };
-  // this.setState((prevState) => {
-  //   return {
-  //     [option]: prevState[option] + 1,
-  //   };
-  // });
-  // countTotalFeedback=()=>{
 
-  // }
+  onClickOption = option =>
+    this.setState(prevState => {
+      return {
+        [option]: prevState[option] + 1,
+      };
+    });
+  // countTotalFeedback = value => {
+  // this.setState(prevState => {
+  //   console.log(prevState);
+  //   // console.log(option);
+  //   return {
+  //     prevState.map(() => {
+
+  //    })
+  // };
+  // });
+  // console.log(value + 0);
+  // return (value +1)
+  // };
   // countPositiveFeedbackPercentage = () => {
 
   //  }
@@ -28,7 +40,8 @@ export class App extends Component {
         <Section title="Please leave feedback">
           <FeedbackOptions
             options={this.state}
-            // onLeaveFeedback={ }
+            onLeaveFeedback={this.onClickOption}
+            onClick={this.countTotalFeedback}
           ></FeedbackOptions>
         </Section>
 
