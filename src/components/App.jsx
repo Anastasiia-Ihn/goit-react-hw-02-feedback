@@ -18,18 +18,16 @@ export class App extends Component {
     });
 
   countTotalFeedback = () => {
-    let total = 0;
-    const arrAmountRating = Object.values(this.state);
-
-    total = arrAmountRating[0] + arrAmountRating[1] + arrAmountRating[2];
-
-    return total;
+    const { good, neutral, bad } = this.state;
+    return good + neutral + bad;
   };
   countPositiveFeedbackPercentage = () => {
-    let procent = 0;
-    let quntity = this.countTotalFeedback();
-    console.log(quntity);
-    procent = Math.round(parseFloat(quntity / 3) * 100);
+    const { good } = this.state;
+
+    const procent = Math.round(
+      parseFloat(good * 100) / this.countTotalFeedback()
+    );
+
     return `${procent} %`;
   };
 
