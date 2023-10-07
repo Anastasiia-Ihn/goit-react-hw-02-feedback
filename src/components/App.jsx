@@ -2,7 +2,6 @@ import { Component } from 'react';
 import { Statistics } from './Statistics/Statistics';
 import { FeedbackOptions } from './FeedbackOptions/FeedbackOptions';
 import { Section } from './Section/Section';
-import { Notification } from './Notification/Notification';
 
 export class App extends Component {
   state = {
@@ -19,32 +18,20 @@ export class App extends Component {
     });
 
   countTotalFeedback = () => {
-    const arrAmountRating = Object.values(this.state);
     let total = 0;
+    const arrAmountRating = Object.values(this.state);
 
-    for (const el of arrAmountRating) {
-      console.log(el);
-      return (total += el);
-    }
-    // console.log(total);
-    // this.setState(prevState => {
-    //   console.log(prevState);
-    //   return {
-    //     prevState.map(() => {
+    total = arrAmountRating[0] + arrAmountRating[1] + arrAmountRating[2];
 
-    //    })
-    // };
-    // });
-    // console.log(value + 0);
-    // return (value +1)
+    return total;
   };
-  // countPositiveFeedbackPercentage = () => {
-  // total = good + neutral + bad
-  // const meanGood = 2;
-  // const meanNeutral = 1.5;
-  // const meanBad = 1
-  //   return (((good * meanGood) + (neutral * meanNeutral) + (bad * meanBad)) / total)
-  //  }
+  countPositiveFeedbackPercentage = () => {
+    let procent = 0;
+    let quntity = this.countTotalFeedback();
+    console.log(quntity);
+    procent = Math.round(parseFloat(quntity / 3) * 100);
+    return `${procent} %`;
+  };
 
   render() {
     const { good, neutral, bad } = this.state;
@@ -63,10 +50,8 @@ export class App extends Component {
             neutral={neutral}
             bad={bad}
             total={this.countTotalFeedback()}
-            positivePercentage={0}
-            // onSumOpinions={this.countTotalFeedback}
+            positivePercentage={this.countPositiveFeedbackPercentage()}
           ></Statistics>
-          <Notification message="There is no feedback" />
         </Section>
       </>
     );

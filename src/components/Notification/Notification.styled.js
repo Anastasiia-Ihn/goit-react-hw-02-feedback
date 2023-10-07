@@ -1,3 +1,6 @@
-// import styled from "styled-components";
+import styled from 'styled-components';
 
-// export const Notification = styled.p``
+export const NotificationText = styled.p`
+  font-size: 30px;
+  padding-left: 50px;
+`;
