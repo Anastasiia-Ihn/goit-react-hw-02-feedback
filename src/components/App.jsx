@@ -17,22 +17,35 @@ export class App extends Component {
         [option]: prevState[option] + 1,
       };
     });
-  // countTotalFeedback = value => {
-  // this.setState(prevState => {
-  //   console.log(prevState);
-  //   // console.log(option);
-  //   return {
-  //     prevState.map(() => {
 
-  //    })
-  // };
-  // });
-  // console.log(value + 0);
-  // return (value +1)
-  // };
+  countTotalFeedback = () => {
+    const arrAmountRating = Object.values(this.state);
+    let total = 0;
+
+    for (const el of arrAmountRating) {
+      console.log(el);
+      return (total += el);
+    }
+    // console.log(total);
+    // this.setState(prevState => {
+    //   console.log(prevState);
+    //   return {
+    //     prevState.map(() => {
+
+    //    })
+    // };
+    // });
+    // console.log(value + 0);
+    // return (value +1)
+  };
   // countPositiveFeedbackPercentage = () => {
-
+  // total = good + neutral + bad
+  // const meanGood = 2;
+  // const meanNeutral = 1.5;
+  // const meanBad = 1
+  //   return (((good * meanGood) + (neutral * meanNeutral) + (bad * meanBad)) / total)
   //  }
+
   render() {
     const { good, neutral, bad } = this.state;
     return (
@@ -41,7 +54,6 @@ export class App extends Component {
           <FeedbackOptions
             options={this.state}
             onLeaveFeedback={this.onClickOption}
-            onClick={this.countTotalFeedback}
           ></FeedbackOptions>
         </Section>
 
@@ -50,8 +62,9 @@ export class App extends Component {
             good={good}
             neutral={neutral}
             bad={bad}
-            total={0}
+            total={this.countTotalFeedback()}
             positivePercentage={0}
+            // onSumOpinions={this.countTotalFeedback}
           ></Statistics>
           <Notification message="There is no feedback" />
         </Section>

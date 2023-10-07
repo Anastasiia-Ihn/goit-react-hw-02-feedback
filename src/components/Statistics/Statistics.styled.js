@@ -1,7 +1,15 @@
 import styled from 'styled-components';
 
-export const Statistics = styled.div``;
+export const StatisticsList = styled.ul`
+  list-style: none;
+`;
 
-export const ElTotalOption = styled.li``;
+export const ElTotalOption = styled.li`
+  margin: 5px;
+  display: flex;
+`;
 
-export const ValueOption = styled.p``;
+export const ValueOption = styled.p`
+  margin: 0;
+  padding-left: 10px;
+`;
